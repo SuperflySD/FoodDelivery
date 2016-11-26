@@ -1,0 +1,1 @@
+C:\Users\LL\documents\visual studio 2015\Projects\GameStore\GameStore.UnitTests\obj\Debug\GameStore.UnitTests.csprojResolveAssemblyReference.cache

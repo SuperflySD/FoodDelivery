@@ -1,0 +1,27 @@
+﻿@model GameStore.Domain.Entities.Cart
+
+<div class="navbar-right">
+    @Html.ActionLink("Перейти в корзину", "Index", "Cart", new { returnUrl = Request.Url.PathAndQuery },new { @class = "btn btn-default navbar-btn" })
+</div>
+
+@{
+
+            int c = Model.Lines.Sum(x => x.Quantity);
+
+            String s = c == 1 ? "берло" : "берла";
+
+}
+
+<div class="navbar-text navbar-right">
+    <b>
+        Корзина:
+        @Model.Lines.Sum(x => x.Quantity) @s,
+        @Model.ComputeTotalValue().ToString("# руб")
+
+
+        
+
+        
+    </b>
+</div>
+
