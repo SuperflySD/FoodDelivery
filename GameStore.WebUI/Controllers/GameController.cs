@@ -38,7 +38,35 @@ namespace GameStore.WebUI.Controllers
                 },
                 CurrentCategory = category
             };
+            ViewBag.i = RouteData.Values["category"];
             return View(model);
+        }
+
+
+        public FileContentResult GetImage(int gameId)
+        {
+            Game game = repository.Games
+                .FirstOrDefault(g => g.GameId == gameId);
+
+            if (game != null)
+            {
+                return File(game.ImageData, game.ImageMimeType);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public ViewResult Test()
+        {
+
+            ViewBag.h = HttpContext;
+
+            int i = HttpContext.Request.Cookies.Count;
+               HttpContext.Response.AppendCookie(new HttpCookie((i+1).ToString(), "mycoo"));
+
+            return View();
         }
 
     }

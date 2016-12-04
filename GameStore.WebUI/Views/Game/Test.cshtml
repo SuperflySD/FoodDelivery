@@ -1,0 +1,66 @@
+﻿@using System.Collections
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+  
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
+    <title>Test</title>
+</head>
+<body>
+    <div> 
+
+
+       
+       @{
+
+           System.Web.HttpContextWrapper http = ViewBag.h;
+
+           var t  = http.Request.Browser.Browsers;
+
+           // http.Request.Cookies.Add(new HttpCookie("mycookie", "qqq"));
+
+           var b = http.Request.Cookies;
+           var c = http.Request.Cookies.Get("1");
+          // c.Expires.AddSeconds(60);
+
+       }
+
+        @{
+           
+                 } 
+       
+        <br />
+         @foreach (var f in t)
+         {
+            @Html.ActionLink("Add kuku", "Test", null, new { @class = "btn btn-primary" })
+            
+
+         }
+        <br /><br />
+@foreach (var f in b)
+{
+    <div class="btn-block" style="text-indent: 20px">@f 
+        <a> @f.Expires.Date</a>
+        </div>
+}
+
+
+
+    </div>
+</body>
+</html>

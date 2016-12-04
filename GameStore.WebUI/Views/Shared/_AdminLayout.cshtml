@@ -1,5 +1,8 @@
 ﻿@{
     Layout = null;
+
+    HtmlHelper.ClientValidationEnabled = true;
+    HtmlHelper.UnobtrusiveJavaScriptEnabled = true;
 }
 
 <!DOCTYPE html>
@@ -9,10 +12,20 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
+
     <title></title>
 </head>
 <body>
     <div>
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success">@TempData["message"]</div>
+        }
+        @if (TempData["message-fail"] != null)
+        {
+            <div class="alert alert-danger">@TempData["message-fail"]</div>
+        }
+
         @RenderBody()
     </div>
 </body>
